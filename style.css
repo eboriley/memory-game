@@ -33,12 +33,12 @@
 
 .cover{
     background: #304859;
-    transition: all 150ms ease-in;
+    transition: all 500ms ease-in;
 }
 
 .cover_text{
     color : #304859;
-    transition: all 150ms ease-in;
+    transition: all 500ms ease-in;
 }
 
 .disabledbutton_text{
@@ -51,7 +51,7 @@
     opacity: 0.4;
     color: #304859;
     background: #7191A5;
-    transition: all 150ms ease-in;
+    transition: all 500ms ease-in;
 }
 
 .disabledbtntemp{
@@ -60,5 +60,5 @@
 
 .selected {
     background-color: #FDA214;
-    transition: all 150ms ease-in;
+    transition: all 500ms ease-in;
 }

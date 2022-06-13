@@ -95,9 +95,16 @@ setTimeout(() => {
 
 //add event listeners to all images
 let clickedImage = [];
+let isMatchedCards;
+let isNotMatchedCards;
 document.querySelectorAll('.icon').forEach((item) => {
   item.addEventListener('click', () => {
     //reset the arr holding last selected images
+
+    if (clickedImage.length == 1) {
+      clearTimeout(isMatchedCards);
+      clearTimeout(isNotMatchedCards);
+    }
     if (clickedImage.length === 2) {
       clickedImage = [];
     }
@@ -107,41 +114,47 @@ document.querySelectorAll('.icon').forEach((item) => {
     item.classList.add('disabledbtntemp');
     item.firstChild.classList.add('disabledbutton_text');
     clickedImage.push(item.firstChild.classList.value);
+    console.log(clickedImage);
 
     //logic after two cards are selected
     if (clickedImage.length === 2) {
       //if the images on selected cards match
-      if (clickedImage[0] === clickedImage[1]) {
-        setTimeout(() => {
-          document.querySelectorAll('.icon').forEach((item) => {
-            if (
-              item.firstChild.classList.value === clickedImage[0] ||
-              item.firstChild.classList.value === clickedImage[1]
-            ) {
-              item.classList.add('disabledbutton');
-              item.classList.remove('selected');
-              item.firstChild.classList.add('disabledbutton_text');
-            }
-          });
-        }, 500);
-      } //if the images on the cards do not match
-      else {
-        setTimeout(() => {
-          document.querySelectorAll('.icon').forEach((item) => {
-            if (
-              item.firstChild.classList.value === clickedImage[0] ||
-              item.firstChild.classList.value === clickedImage[1]
-            ) {
-              item.classList.add('cover');
-              item.classList.remove('selected');
-              item.classList.remove('disabledbtntemp');
-              item.firstChild.classList.remove('disabledbutton_text');
-            }
-          });
-        }, 500);
-      }
+      isMatchedCards = setTimeout(cardMatched, 700, clickedImage);
+
+      //if the images on the cards do not match
+      isNotMatchedCards = setTimeout(
+        cardNotMatched,
+        700,
+        clickedImage
+      );
     }
   });
 });
 
 console.log(iconContainer);
+
+function cardMatched(clickedImage) {
+  if (clickedImage[0] === clickedImage[1]) {
+    document.querySelectorAll('.icon').forEach((item) => {
+      if (
+        item.firstChild.classList.value === clickedImage[0] ||
+        item.firstChild.classList.value === clickedImage[1]
+      ) {
+        item.classList.add('disabledbutton');
+        item.classList.remove('selected');
+        item.firstChild.classList.add('disabledbutton_text');
+      }
+    });
+  }
+}
+
+function cardNotMatched(clickedImage) {
+  if (clickedImage[0] !== clickedImage[1]) {
+    document.querySelectorAll('.icon').forEach((item) => {
+      item.classList.add('cover');
+      item.classList.remove('selected');
+      item.classList.remove('disabledbtntemp');
+      item.firstChild.classList.remove('disabledbutton_text');
+    });
+  }
+}
