@@ -1,64 +1,62 @@
 .hidden {
-    display: none;
+  display: none;
 }
 
-.visible{
-    display: block;
+.visible {
+  display: block;
 }
 
 .icon {
-    font-size: 1.4rem;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    padding: .4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: .2rem .2rem;
-    background: #304859;
-    color: #fff;
+  font-size: 1.4rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2rem 0.2rem;
+  background: #304859;
+  color: #fff;
 }
 
-
-
-.icons{
-    display: flex;
-    flex-wrap: wrap;
+.icons {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.numbers{
-    font-weight: 700;
+.numbers {
+  font-weight: 700;
 }
 
-.cover{
-    background: #304859;
-    transition: all 500ms ease-in;
+.cover {
+  background: #304859;
+  transition: all 500ms ease-in;
 }
 
-.cover_text{
-    color : #304859;
-    transition: all 500ms ease-in;
+.cover_text {
+  color: #304859;
+  transition: all 500ms ease-in;
 }
 
-.disabledbutton_text{
-    color: #fff;
-    /* transition: all 100ms ease-in; */
+.disabledbutton_text {
+  color: #fff;
+  /* transition: all 100ms ease-in; */
 }
 
 .disabledbutton {
-    pointer-events: none;
-    opacity: 0.4;
-    color: #304859;
-    background: #7191A5;
-    transition: all 500ms ease-in;
+  pointer-events: none;
+  opacity: 0.4;
+  color: #304859;
+  background: #7191a5;
+  transition: all 500ms ease-in;
 }
 
-.disabledbtntemp{
-    pointer-events: none;
+.disabledbtntemp {
+  pointer-events: none;
 }
 
 .selected {
-    background-color: #FDA214;
-    transition: all 500ms ease-in;
+  background-color: #fda214;
+  transition: all 500ms ease-in;
 }
