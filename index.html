@@ -10,7 +10,7 @@
     <script src="https://use.fontawesome.com/1a6d68fc4a.js"></script>
 </head>
 <body>
-    <section class="game_start">
+    <section class="game_start hidden">
  <!-- Game setup start -->
 
  Select Theme
@@ -31,31 +31,21 @@
 
  <!-- Game setup end -->
     </section>
-    <section class="game_board">
-        <div class="icons">
-           
-               
-               
-               
-           
-                <!-- 
-               
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <i class="fab fa-spotify"></i>
-                <i class="fas fa-tint"></i> -->
-           
-        
-        </div>
+    <section class="game_board">  
 <!-- Game board start -->
+    <div class="game_board-header">
+        <img class="logo" src="./assets/logo.svg" alt="logo">
+        <p>Restart</p>
+        <p>New Game</p>
+      
+    </div>
+    <div class="icons">
+    </div>
+    <div class="in_game_info">
+    <div class="time_container"><p class="text">Time <span id="time" class="time"></span></p></div>
+    <div class="moves_container"><p class="text">Moves <span id="moves" class="moves">0</span></p></div>
+    </div>
+
 
 Restart
 New Game

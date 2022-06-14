@@ -23,25 +23,25 @@ const images = [
 
 let theme = 'images';
 
-const number = [
-  `<div class="icon numbers"><p>0</p></div>`,
-  `<div class="icon numbers"><p>1</p></div>`,
-  `<div class="icon numbers"><p>2</p></div>`,
-  `<div class="icon numbers"><p>4</p></div>`,
-  `<div class="icon numbers"><p>5</p></div>`,
-  `<div class="icon numbers"><p>6</p></div>`,
-  `<div class="icon numbers"><p>7</p></div>`,
-  `<div class="icon numbers"><p>8</p></div>`,
-  `<div class="icon numbers"><p>9</p></div>`,
-  `<div class="icon numbers"><p>10</p></div>`,
-  `<div class="icon numbers"><p>11</p></div>`,
-  `<div class="icon numbers"><p>12</p></div>`,
-  `<div class="icon numbers"><p>13</p></div>`,
-  `<div class="icon numbers"><p>14</p></div>`,
-  `<div class="icon numbers"><p>15</p></div>`,
-  `<div class="icon numbers"><p>16</p></div>`,
-  `<div class="icon numbers"><p>17</p></div>`,
-  `<div class="icon numbers"><p>16</p></div>`,
+const numbers = [
+  `<div class="icon numbers"><p class="num-0">0</p></div>`,
+  `<div class="icon numbers"><p class="num-1">1</p></div>`,
+  `<div class="icon numbers"><p class="num-2">2</p></div>`,
+  `<div class="icon numbers"><p class="num-3">3</p></div>`,
+  `<div class="icon numbers"><p class="num-4">4</p></div>`,
+  `<div class="icon numbers"><p class="num-5">5</p></div>`,
+  `<div class="icon numbers"><p class="num-6">6</p></div>`,
+  `<div class="icon numbers"><p class="num-7">7</p></div>`,
+  `<div class="icon numbers"><p class="num-8">8</p></div>`,
+  `<div class="icon numbers"><p class="num-9">9</p></div>`,
+  `<div class="icon numbers"><p class="num-10">10</p></div>`,
+  `<div class="icon numbers"><p class="num-11">11</p></div>`,
+  `<div class="icon numbers"><p class="num-12">12</p></div>`,
+  `<div class="icon numbers"><p class="num-13">13</p></div>`,
+  `<div class="icon numbers"><p class="num-14">14</p></div>`,
+  `<div class="icon numbers"><p class="num-15">15</p></div>`,
+  `<div class="icon numbers"><p class="num-16">16</p></div>`,
+  `<div class="icon numbers"><p class="num-18">18</p></div>`,
 ];
 //create a pair from each image
 const duplicateImages = (arr) => {
@@ -57,8 +57,8 @@ const getRandomImage = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-const getRandomNumber = (max) => {
-  return Math.floor(Math.random() * Math.floor(max)) + 8;
+const getRandomNumber = (min, max) => {
+  return Math.floor(Math.random() * Math.floor(max - min + 1)) + min;
 };
 
 //reshuffle the image pairs
@@ -74,12 +74,25 @@ const generateImagesRandom = (arr) => {
   return random;
 };
 
-console.log(getRandomNumber(18) - 8);
+const gridSize = getRandomNumber(8, 18);
 
-const imagepairs =
-  theme === 'images'
-    ? generateImagesRandom(duplicateImages(images.slice(0, 8)))
-    : generateImagesRandom(duplicateImages(number));
+let imagepairs;
+
+if (false) {
+  imagepairs =
+    theme === 'images'
+      ? generateImagesRandom(
+          duplicateImages(images.slice(gridSize - 8, gridSize))
+        )
+      : generateImagesRandom(
+          duplicateImages(numbers.slice(gridSize - 8, gridSize))
+        );
+} else {
+  imagepairs =
+    theme === 'images'
+      ? generateImagesRandom(duplicateImages(images))
+      : generateImagesRandom(duplicateImages(numbers));
+}
 
 //append all images to image container
 for (pairs of imagepairs) {
@@ -97,7 +110,9 @@ setTimeout(() => {
 let clickedImage = [];
 let isMatchedCards;
 let isNotMatchedCards;
-console.log(isNotMatchedCards, isMatchedCards);
+let movesCount = 0;
+let pairedIcons = 0;
+let gameOver = false;
 document.querySelectorAll('.icon').forEach((item) => {
   item.addEventListener('click', () => {
     //reset the arr holding last selected images
@@ -106,6 +121,9 @@ document.querySelectorAll('.icon').forEach((item) => {
       clearTimeout(isMatchedCards);
       clearTimeout(isNotMatchedCards);
     }
+
+    movesCount++;
+    document.getElementById('moves').innerText = movesCount;
 
     //display card image when the card is selected
     item.classList.remove('cover');
@@ -116,16 +134,18 @@ document.querySelectorAll('.icon').forEach((item) => {
       clickedImage.push(item.firstChild.classList.value);
     }
 
-    console.log(clickedImage);
-
     //logic after two cards are selected
     if (clickedImage.length === 2) {
       iconContainer.classList.add('disabledbtntemp');
       //if the images on selected cards match
-      isMatchedCards = setTimeout(cardMatched, 1000, clickedImage);
+      isMatchedCards = setTimeout(cardMatched, 500, clickedImage);
 
       //if the images on the cards do not match
-      isNotMatchedCards = setTimeout(cardNotMatched, 1000, clickedImage);
+      isNotMatchedCards = setTimeout(
+        cardNotMatched,
+        500,
+        clickedImage
+      );
 
       if ((isMatchedCards, isNotMatchedCards)) {
         clickedImage = [];
@@ -133,8 +153,6 @@ document.querySelectorAll('.icon').forEach((item) => {
     }
   });
 });
-
-console.log(iconContainer);
 
 function cardMatched(clickedImage) {
   if (clickedImage[0] === clickedImage[1]) {
@@ -149,6 +167,13 @@ function cardMatched(clickedImage) {
         iconContainer.classList.remove('disabledbtntemp');
       }
     });
+    pairedIcons += 2;
+    console.log(pairedIcons);
+  }
+
+  if (pairedIcons === imagepairs.length) {
+    gameOver = true;
+    if (gameOver) clearInterval(isGameOver);
   }
 }
 
@@ -168,3 +193,19 @@ function cardNotMatched(clickedImage) {
     });
   }
 }
+let min = 0;
+let sec = 0;
+function timer() {
+  sec++;
+  if (sec < 10) {
+    document.getElementById('time').innerText = `${min}:0${sec}`;
+  } else {
+    document.getElementById('time').innerText = `${min}:${sec}`;
+  }
+  if (sec >= 59) {
+    sec = -1; //because we want the next count to begin from zero
+    min++;
+  }
+}
+
+const isGameOver = setInterval(timer, 1000);

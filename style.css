@@ -6,10 +6,40 @@
   display: block;
 }
 
+.game_board {
+  background-color: #ffffff;
+}
+
+.game_board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #304859;
+}
+
+/* .game_board-header-controls{
+  display: flex;
+  border: 1px solid #304859;
+  align-self: start;
+  padding: 0;
+} */
+
+.game_board-header  p {
+  display: inline;
+  align-self: start;
+  border: 1px solid #304859;
+}
+
+.logo{
+  align-self: start;
+  width: 4rem;
+  border: 1px solid #304859;
+}
+
 .icon {
   font-size: 1.4rem;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   padding: 0.4rem;
   display: flex;
@@ -23,6 +53,13 @@
 .icons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  max-width: 18rem;
+  margin: 0 auto ;
+} 
+
+.icon:hover {
+  cursor: pointer;
 }
 
 .numbers {
@@ -59,4 +96,49 @@
 .selected {
   background-color: #fda214;
   transition: all 500ms ease-in;
+}
+
+
+.in_game_info {
+  max-width: 16rem;
+  margin: 0 auto;
+  display: flex;
+
+
+}
+
+
+.time_container, .moves_container{
+  background: #f2f2f2;
+  border-radius: .3rem;
+  width: 50%;
+  padding: .002px .8rem;
+}
+
+.time_container{
+  margin-top: 2rem;
+  margin-right: 1rem;
+}
+
+.moves_container{
+  margin-top: 2rem;
+  margin-left: auto;
+}
+
+.text{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: .8rem;
+}
+
+.time, .moves {
+  margin-left: auto;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* while we get bigger */
+@media only screen and (min-width:400px)  {
+  
 }
