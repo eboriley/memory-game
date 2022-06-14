@@ -11,29 +11,53 @@
 }
 
 .game_board-header {
+  /* border: 1px solid #304859; */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #304859;
+  justify-content: center;
+  margin: 1.3rem 0;
 }
 
-/* .game_board-header-controls{
-  display: flex;
-  border: 1px solid #304859;
-  align-self: start;
-  padding: 0;
-} */
+.game_board-header-controls {
+  display: inline;
+  margin-left: auto;
+}
 
-.game_board-header  p {
+.game_board-header p {
   display: inline;
   align-self: start;
-  border: 1px solid #304859;
+}
+.restart {
+  margin-right: 0.5rem;
+  background-color: #fda214;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 0.2rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
-.logo{
+.restart:hover {
+  cursor: pointer;
+}
+
+.new_game {
+  background-color: #f2f2f2;
+  color: #304859;
+  border-radius: 1rem;
+  padding: 0.2rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.new_game:hover {
+  cursor: pointer;
+}
+
+.logo {
   align-self: start;
-  width: 4rem;
-  border: 1px solid #304859;
+  width: 5rem;
+  margin: auto 0;
+  /* border: 1px solid #304859; */
 }
 
 .icon {
@@ -55,8 +79,8 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 18rem;
-  margin: 0 auto ;
-} 
+  margin: 0 auto;
+}
 
 .icon:hover {
   cursor: pointer;
@@ -98,47 +122,44 @@
   transition: all 500ms ease-in;
 }
 
-
 .in_game_info {
   max-width: 16rem;
   margin: 0 auto;
   display: flex;
-
-
 }
 
-
-.time_container, .moves_container{
+.time_container,
+.moves_container {
   background: #f2f2f2;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   width: 50%;
-  padding: .002px .8rem;
+  padding: 0.002px 0.8rem;
 }
 
-.time_container{
+.time_container {
   margin-top: 2rem;
   margin-right: 1rem;
 }
 
-.moves_container{
+.moves_container {
   margin-top: 2rem;
   margin-left: auto;
 }
 
-.text{
+.text {
   width: 100%;
   display: flex;
   align-items: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
-.time, .moves {
+.time,
+.moves {
   margin-left: auto;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 /* while we get bigger */
-@media only screen and (min-width:400px)  {
-  
+@media only screen and (min-width: 400px) {
 }

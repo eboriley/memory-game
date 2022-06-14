@@ -1,87 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
     <script src="https://use.fontawesome.com/1a6d68fc4a.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <section class="game_start hidden">
- <!-- Game setup start -->
+      <!-- Game setup start -->
 
- Select Theme
- Numbers
- Icons
+      Select Theme Numbers Icons Number of Players 1 2 3 4 Grid Size 4x4 6x6
+      Start Game
 
- Number of Players
- 1
- 2
- 3
- 4
-
- Grid Size
- 4x4
- 6x6
-
- Start Game
-
- <!-- Game setup end -->
+      <!-- Game setup end -->
     </section>
-    <section class="game_board">  
-<!-- Game board start -->
-    <div class="game_board-header">
-        <img class="logo" src="./assets/logo.svg" alt="logo">
-        <p>Restart</p>
-        <p>New Game</p>
-      
-    </div>
-    <div class="icons">
-    </div>
-    <div class="in_game_info">
-    <div class="time_container"><p class="text">Time <span id="time" class="time"></span></p></div>
-    <div class="moves_container"><p class="text">Moves <span id="moves" class="moves">0</span></p></div>
-    </div>
+    <section class="game_board">
+      <!-- Game board start -->
+      <div class="game_board-header">
+        <img class="logo" src="./assets/logo.svg" alt="logo" />
+        <div class="game_board-header-controls">
+          <p class="restart">Restart</p>
+          <p class="new_game">New Game</p>
+        </div>
+      </div>
+      <div class="icons"></div>
+      <div class="in_game_info">
+        <div class="time_container">
+          <p class="text">Time <span id="time" class="time"></span></p>
+        </div>
+        <div class="moves_container">
+          <p class="text">Moves <span id="moves" class="moves">0</span></p>
+        </div>
+      </div>
 
+      Restart New Game
 
-Restart
-New Game
+      <!-- Multiplayer scores start -->
 
-<!-- Multiplayer scores start -->
+      Player 1
+      <!-- P1 score -->
+      Current Turn Player 2
+      <!-- P2 score -->
+      Current Turn Player 3
+      <!-- P3 score -->
+      Current Turn Player 4
+      <!-- P4 score -->
+      Current Turn
 
-Player 1
-<!-- P1 score -->
-Current Turn
+      <!-- Multiplayer scores start -->
 
-Player 2
-<!-- P2 score -->
-Current Turn
+      <!-- Solo game time and moves counter start -->
 
-Player 3
-<!-- P3 score -->
-Current Turn
+      Time
+      <!-- Time elapsed -->
 
-Player 4
-<!-- P4 score -->
-Current Turn
+      Moves
+      <!-- Moves total -->
 
-<!-- Multiplayer scores start -->
+      <!-- Solo game time and moves counter end -->
 
-<!-- Solo game time and moves counter start -->
-
-Time
-<!-- Time elapsed -->
-
-Moves
-<!-- Moves total -->
-
-<!-- Solo game time and moves counter end -->
-
-<!-- Game board end -->
+      <!-- Game board end -->
     </section>
     <script src="/js/script.js" defer></script>
-</body>
+  </body>
 </html>
