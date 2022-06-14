@@ -12,7 +12,7 @@ body{
 
 .game_board {
   background-color: #ffffff;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -70,8 +70,8 @@ body{
 
 .icon {
   font-size: 1.4rem;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   padding: 0.4rem;
   display: flex;
@@ -86,7 +86,7 @@ body{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 18rem;
+  max-width: 20rem;
   margin: 0 auto;
   align-items: space-between;
 }
@@ -132,11 +132,11 @@ body{
 }
 
 .in_game_info {
-  max-width: 18rem;
+  max-width: 20rem;
   padding: 0 1rem;
   margin: 0 auto;
   display: flex;
-  width: 16rem;
+  width: 18rem;
 }
 
 .time_container,
