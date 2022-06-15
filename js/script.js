@@ -22,6 +22,7 @@ const images = [
 ];
 
 let theme = 'images';
+let smallerGrid = true;
 
 const numbers = [
   `<div class="icon numbers"><p class="num-0">0</p></div>`,
@@ -78,7 +79,7 @@ const gridSize = getRandomNumber(8, 18);
 
 let imagepairs;
 
-if (false) {
+if (smallerGrid) {
   imagepairs =
     theme === 'images'
       ? generateImagesRandom(
@@ -97,6 +98,14 @@ if (false) {
 //append all images to image container
 for (pairs of imagepairs) {
   iconContainer.innerHTML += pairs;
+}
+
+if (smallerGrid) {
+  document.querySelectorAll('.icon').forEach((item) => {
+    item.style.width = '50px';
+    item.style.height = '50px';
+    item.style.fontsize = '1.6rem';
+  });
 }
 
 setTimeout(() => {

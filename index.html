@@ -18,23 +18,43 @@
     <script src="https://use.fontawesome.com/1a6d68fc4a.js"></script>
   </head>
   <body>
+    <!-- Menu Start -->
     <section class="game_start hidden">
-      <!-- Game setup start -->
-
-      Select Theme Numbers Icons Number of Players 1 2 3 4 Grid Size 4x4 6x6
-      Start Game
-
-      <!-- Game setup end -->
-    </section>
-    <section class="game_board">
-      <!-- Game board start -->
-      <div class="game_board-header">
-        <img class="logo" src="./assets/logo.svg" alt="logo" />
-        <div class="game_board-header-controls">
-          <p class="restart">Restart</p>
-          <p class="new_game">New Game</p>
+      <div class="container">
+        <div class="theme_group">
+          <p>Select Theme</p>
+          <button>Numbers</button>
+          <button>Icons</button>
         </div>
+        <div class="players_group">
+          <p>Number of players</p>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>4</button>
+        </div>
+        <div class="grid_group">
+          <p>Grid Size</p>
+          <button>4x4</button>
+          <button>6x6</button>
+        </div>
+        <button>Start Game</button>
       </div>
+     
+    </section>
+    <!-- Menu End -->
+          <!-- Game board start-->
+    <section class="game_board ">
+
+
+        <div class="game_board-header">
+          <img class="logo" src="./assets/logo.svg" alt="logo" />
+          <div class="game_board-header-controls">
+            <p class="restart">Restart</p>
+            <p class="new_game">New Game</p>
+          </div>
+        </div>
+
       <div class="icons"></div>
       <div class="in_game_info">
         <div class="time_container">

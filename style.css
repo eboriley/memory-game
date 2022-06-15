@@ -1,18 +1,20 @@
 body{
   font-family: 'Atkinson Hyperlegible', sans-serif;
+  padding:0;
+  margin: 0;
 }
 
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
+.game_start{
+  background-color: #152938;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .game_board {
   background-color: #ffffff;
-  min-height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,9 +22,9 @@ body{
 
 .game_board-header {
   /* border: 1px solid #304859; */
+  margin: 3rem auto;
   display: flex;
-  justify-content: center;
-  margin: 1.3rem 0;
+  min-width: 19rem;
 }
 
 .game_board-header-controls {
@@ -39,8 +41,8 @@ body{
   background-color: #fda214;
   color: #fff;
   border-radius: 1rem;
-  padding: 0.2rem 0.9rem;
-  font-size: 0.8rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.7rem;
   font-weight: 700;
 }
 
@@ -52,8 +54,8 @@ body{
   background-color: #f2f2f2;
   color: #304859;
   border-radius: 1rem;
-  padding: 0.2rem 0.9rem;
-  font-size: 0.8rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.7rem;
   font-weight: 700;
 }
 
@@ -65,7 +67,6 @@ body{
   align-self: start;
   width: 5rem;
   margin: auto 0;
-  /* border: 1px solid #304859; */
 }
 
 .icon {
@@ -80,6 +81,10 @@ body{
   margin: 0.2rem 0.2rem;
   background: #304859;
   color: #fff;
+}
+
+.icon:focus{
+  outline: none;
 }
 
 .icons {
@@ -132,11 +137,9 @@ body{
 }
 
 .in_game_info {
-  max-width: 20rem;
-  padding: 0 1rem;
-  margin: 0 auto;
+  margin: 3rem auto;
   display: flex;
-  width: 18rem;
+  min-width: 18rem;
 }
 
 .time_container,
@@ -172,5 +175,22 @@ body{
 }
 
 /* while we get bigger */
+@media only screen and (min-width: 320px) {
+  .game_board-header{
+    min-width: 22rem;
+  }
+}
 @media only screen and (min-width: 400px) {
+  .game_board-header{
+min-width: 30rem;
+  }
+}
+
+.visible {
+  display: block;
+}
+
+
+.hidden {
+  display: none;
 }
