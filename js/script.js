@@ -102,8 +102,8 @@ for (pairs of imagepairs) {
 
 if (smallerGrid) {
   document.querySelectorAll('.icon').forEach((item) => {
-    item.style.width = '50px';
-    item.style.height = '50px';
+    item.style.width = '40px';
+    item.style.height = '40px';
     item.style.fontsize = '1.6rem';
   });
 }
