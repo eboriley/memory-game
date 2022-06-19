@@ -1,7 +1,14 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body{
   font-family: 'Atkinson Hyperlegible', sans-serif;
   padding:0;
   margin: 0;
+  color: #152920;
 }
 
 .game_start{
@@ -9,7 +16,84 @@ body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  background: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  padding: .5rem 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.container > .theme_group{
+  width: 100%;
+}
+
+.btn_btn{
+  padding: .6rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: .9rem;
+  margin: .4rem .4rem;
+}
+
+.bg-grey{
+  background: #BCCED1;
+}
+
+.w-50{
+  width: 50%;
+}
+
+.w-100{
+  width: 100%;
+}
+
+.btn_btn:hover{
+  cursor: pointer;
+}
+
+.flex{
+  display: flex;
+}
+
+.bg_white{
+  background: #ffffff;
+}
+
+.p-10{
+  padding: 1.2rem;
+}
+
+.py-10{
+  padding: .6rem 0;
+}
+
+.ml-10{
+  margin-left: .8rem;
+}
+
+.mt-10{
+  margin-top: .8rem;
+}
+
+.m-10 {
+  margin: 1.5rem;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.rounded_border{
+  border-radius: 5px;
 }
 
 .game_board {
@@ -18,11 +102,9 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 20px solid #152938;
 }
 
 .game_board-header {
-  border: 3px solid #304859;
   margin: 3rem auto; 
   display: flex;
   width: calc(100% - 10%);
@@ -67,14 +149,14 @@ body{
 
 .logo {
   align-self: start;
-  width: 3rem;
+  width: 4rem;
   margin: auto 0;
 }
 
 .icon {
   font-size: 1.4rem;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   padding: 0.4rem;
   display: flex;
@@ -156,10 +238,12 @@ body{
 .time_container {
   margin-top: 2rem;
   margin-right: 1rem;
+  padding: 1rem .4rem;
 }
 
 .moves_container {
   margin-top: 2rem;
+  padding: 1rem .4rem;
   margin-left: auto;
 }
 
@@ -170,12 +254,79 @@ body{
   font-size: 0.8rem;
 }
 
-.time,
-.moves {
+.bold_text {
   margin-left: auto;
   font-size: 1rem;
   font-weight: 700;
 }
+
+
+.game_end{
+  background: rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_end > .solo{
+  background: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  padding: .5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.text_bg{
+  width: 94%;
+  background: #f2f2f2;
+  padding: 1rem .7rem;
+  margin: .3rem 0;
+  border-radius: 6px;
+}
+
+.sm-text{
+  font-size: .8rem;
+}
+
+.text-bold{
+  font-weight: 700;
+}
+
+.solo > .controls {
+  display :flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.game-end-btn{
+  padding: .7rem 1rem;
+  width: 94%;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: .4rem 0;
+}
+
+.bg-yellow{
+  background: #fda214;
+}
+
+.text-white{
+  color: #fff;
+}
+
 
 /* while we get bigger */
 @media only screen and (min-width: 600px) {
@@ -196,4 +347,9 @@ min-width: 30rem;
 
 .hidden {
   display: none;
+}
+
+.game_start-active{
+  background-color: #152938;
+  color: #fff;
 }
