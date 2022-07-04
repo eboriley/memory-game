@@ -1,3 +1,5 @@
+const socket = io('ws://localhost:8080');
+
 const optionMenu = document.querySelector('.game_start');
 const gameBoard = document.querySelector('.game_board');
 const iconContainer = document.querySelector('.icons');
@@ -11,12 +13,8 @@ const btn4x4 = document.getElementById('btn_4x4');
 const btn6x6 = document.getElementById('btn_6x6');
 const btnStartGame = document.getElementById('btn_start_game');
 const restartGame = document.getElementById('restart');
-const btnGameEndsRestart = document.getElementById(
-  'game_end_restart'
-);
-const btnGameEndsNewGame = document.getElementById(
-  'game_end_new_game'
-);
+const btnGameEndsRestart = document.getElementById('game_end_restart');
+const btnGameEndsNewGame = document.getElementById('game_end_new_game');
 let theme = 'images';
 let players = 1;
 let grid = '4x4';
@@ -223,7 +221,7 @@ function loadGame(gridSize, imagepairs) {
       item.style.fontsize = '1.6rem';
     });
   }
-  iconContainer.classList.add('disabledbtntemp');
+  iconContainer.classList.add('disabledbtntemp'); //disable gameboard before start
   setTimeout(showCardsTemp, 2000);
 
   gameControl(imagepairs);
@@ -234,7 +232,7 @@ function showCardsTemp() {
     item.classList.add('cover');
     item.firstChild.classList.add('cover_text');
   });
-  iconContainer.classList.remove('disabledbtntemp');
+  iconContainer.classList.remove('disabledbtntemp'); //enable gameboard after the start
   isGameOver = setInterval(timer, 1000);
 }
 
@@ -256,6 +254,7 @@ function gameControl(imagepairs) {
       item.classList.add('selected');
       item.classList.add('disabledbtntemp');
       item.firstChild.classList.add('disabledbutton_text');
+
       if (clickedImage.length <= 2) {
         clickedImage.push(item.firstChild.classList.value);
       }
@@ -264,19 +263,10 @@ function gameControl(imagepairs) {
       if (clickedImage.length === 2) {
         iconContainer.classList.add('disabledbtntemp');
         //if the images on selected cards match
-        isMatchedCards = setTimeout(
-          cardMatched,
-          500,
-          clickedImage,
-          imagepairs
-        );
+        isMatchedCards = setTimeout(cardMatched, 500, clickedImage, imagepairs);
 
         //if the images on the cards do not match
-        isNotMatchedCards = setTimeout(
-          cardNotMatched,
-          500,
-          clickedImage
-        );
+        isNotMatchedCards = setTimeout(cardNotMatched, 500, clickedImage);
 
         if ((isMatchedCards, isNotMatchedCards)) {
           clickedImage = [];

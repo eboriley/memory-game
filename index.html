@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -16,6 +19,8 @@
       crossorigin="anonymous"
     />
     <script src="https://use.fontawesome.com/1a6d68fc4a.js"></script>
+    <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <!-- Menu Start -->
@@ -25,44 +30,69 @@
         <div class="theme_group py-10">
           <p class="sm-text text-bold ml-10">Select Theme</p>
           <div class="flex">
-            <button id="btn_numbers" class="btn_theme btn_btn bg-grey text-white w-50 game_start-active">Numbers</button>
-            <button id="btn_icons" class="btn_theme btn_btn bg-grey text-white w-50">Icons</button>
+            <button
+              id="btn_numbers"
+              class="btn_theme btn_btn bg-grey text-white w-50 game_start-active"
+            >
+              Numbers
+            </button>
+            <button
+              id="btn_icons"
+              class="btn_theme btn_btn bg-grey text-white w-50"
+            >
+              Icons
+            </button>
           </div>
         </div>
         <div class="players_group py-10">
           <p class="sm-text text-bold ml-10">Number of players</p>
-          <div class="flex ">
-            <button id="btn_1" class="btn_btn bg-grey text-white w-100">1</button>
-            <button id="btn_2" class="btn_btn bg-grey text-white w-100">2</button>
-            <button id="btn_3" class="btn_btn bg-grey text-white w-100">3</button>
-            <button id="btn_4" class="btn_btn bg-grey text-white w-100">4</button>
+          <div class="flex">
+            <button id="btn_1" class="btn_btn bg-grey text-white w-100">
+              1
+            </button>
+            <button id="btn_2" class="btn_btn bg-grey text-white w-100">
+              2
+            </button>
+            <button id="btn_3" class="btn_btn bg-grey text-white w-100">
+              3
+            </button>
+            <button id="btn_4" class="btn_btn bg-grey text-white w-100">
+              4
+            </button>
           </div>
-          
         </div>
         <div class="grid_group py-10">
           <p class="sm-text text-bold ml-10">Grid Size</p>
-          <div class="flex ">
-            <button id="btn_4x4" class="btn_grid btn_btn w-100 text-white btn_grid bg-grey game_start-active ">4x4</button>
-            <button id="btn_6x6" class="btn_grid btn_btn w-100 btn_grid text-white bg-grey">6x6</button>
+          <div class="flex">
+            <button
+              id="btn_4x4"
+              class="btn_grid btn_btn w-100 text-white btn_grid bg-grey game_start-active"
+            >
+              4x4
+            </button>
+            <button
+              id="btn_6x6"
+              class="btn_grid btn_btn w-100 btn_grid text-white bg-grey"
+            >
+              6x6
+            </button>
           </div>
-        
         </div>
-        <button id="btn_start_game" class="btn_btn bg-yellow text-white mt-10" >Start Game</button>
+        <button id="btn_start_game" class="btn_btn bg-yellow text-white mt-10">
+          Start Game
+        </button>
       </div>
-     
     </section>
     <!-- Menu End -->
-          <!-- Game board start-->
+    <!-- Game board start-->
     <section class="game_board hidden">
-
-
-        <div class="game_board-header">
-          <img class="logo" src="./assets/logo.svg" alt="logo" />
-          <div class="game_board-header-controls">
-            <p class="restart" id="restart">Restart</p>
-            <p class="new_game">New Game</p>
-          </div>
+      <div class="game_board-header">
+        <img class="logo" src="./assets/logo.svg" alt="logo" />
+        <div class="game_board-header-controls">
+          <p class="restart" id="restart">Restart</p>
+          <p class="new_game">New Game</p>
         </div>
+      </div>
 
       <div class="icons"></div>
       <div class="in_game_info">
@@ -73,25 +103,36 @@
           <p class="text">Moves <span id="moves" class="bold_text">0</span></p>
         </div>
       </div>
-
-     
     </section>
 
     <section class="game_end hidden">
-        <div class="solo">
-          <h1 id="winner-text" class="winner-text">You did it!</h1>
-        <p id="game_end-title" class="game_end-title sm-text">Game over! Here's how you got on...</p>
+      <div class="solo">
+        <h1 id="winner-text" class="winner-text">You did it!</h1>
+        <p id="game_end-title" class="game_end-title sm-text">
+          Game over! Here's how you got on...
+        </p>
         <div class="text_bg">
-          <p class="text">Time Elapsed <span id="time-elapsed" class="bold_text">1:53</span></p>
+          <p class="text">
+            Time Elapsed <span id="time-elapsed" class="bold_text">1:53</span>
+          </p>
         </div>
         <div class="text_bg">
-          <p class="text">Moves Taken <span id="moves-taken" class="bold_text">39 Moves</span></p>
+          <p class="text">
+            Moves Taken <span id="moves-taken" class="bold_text">39 Moves</span>
+          </p>
         </div>
         <div class="controls">
-          <button class="game-end-btn bg-yellow text-white" id="game_end_restart">Restart</button>
-          <button class="game-end-btn" id="game_end_new_game">Setup New Game</button>
+          <button
+            class="game-end-btn bg-yellow text-white"
+            id="game_end_restart"
+          >
+            Restart
+          </button>
+          <button class="game-end-btn" id="game_end_new_game">
+            Setup New Game
+          </button>
         </div>
-        </div>
+      </div>
     </section>
     <script src="/js/script.js" defer></script>
   </body>
